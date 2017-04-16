@@ -1,13 +1,8 @@
 import {Component} from '@angular/core';
 import {TitleComponent} from './title.component';
+import {Item} from './item';
 
-export class Item {
-    id: number;
-    name: string;
-    type: string;
-    price: number;
-    
-}
+
 @Component({
     selector: 'my-app',    
     templateUrl:'./app.component.html',
