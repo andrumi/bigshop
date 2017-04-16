@@ -1,0 +1,34 @@
+<app-banner></app-banner>
+<div class = "col-sm-4">
+<h2>Items</h2>
+<ul class="heroes">
+  <li *ngFor = "let item of items"
+    [class.selected]= "item === selectedItem"
+    (click) = "onSelect(item)">
+    <span class="badge">{{item.id}}</span> {{item.name}}
+  </li>
+</ul>
+</div>
+<div *ngIf="selectedItem" class = "col-sm-4">
+    <h2>{{selectedItem.name}} details.</h2>
+    <table class="table">
+    <thead>
+      <tr>
+        <th><label>Item Code: </label></th>
+        <th>{{selectedItem.id}}</th>
+      </tr>
+    </thead>
+      <tr>
+        <th><label>Name:</label></th>
+        <th><input [(ngModel)] = "selectedItem.name" placeholder = "Name"></th>
+      </tr>
+      <tr>
+        <th><label>Price:</label></th>
+        <th><input [(ngModel)] = "selectedItem.price" placeholder = "Price"> </th>
+      </tr>
+      <tr>
+        <th><label>Category:</label></th>
+        <th><input [(ngModel)] = "selectedItem.type" placeholder = "Category"> </th>
+      </tr>    
+    </table>
+</div>
