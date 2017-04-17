@@ -8,4 +8,11 @@
   </li>
 </ul>
 </div>
-<item-detail [item]="selectedItem"></item-detail>
+<!--<item-detail [item]="selectedItem"></item-detail>-->
+<div *ngIf ="selectedItem" class="col-sm-4">
+  <h2>
+    {{selectedItem.name | uppercase}}<br />
+    £{{selectedItem.price}}
+  </h2>
+  <button (click)="goToDetail()">View Details</button>
+</div>

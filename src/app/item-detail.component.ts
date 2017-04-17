@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
@@ -7,11 +7,13 @@ import {ItemService} from './item.service';
 import {Item } from './item';
 
 @Component({
+    moduleId:module.id,
     selector:'item-detail',
-    templateUrl: './item-detail.component.html'
+    templateUrl: 'item-detail.component.html',
+    styleUrls:['item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit{
-    @Input() item: Item;
+    item: Item;
     constructor(
         private itemService: ItemService,
         private route: ActivatedRoute,
