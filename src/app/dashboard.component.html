@@ -1,8 +1,8 @@
 <h3>Top Five Sellers</h3>
 <div class="grid grid-pad">
-  <div *ngFor = "let item of items" class = "col-1-4">
+  <a *ngFor = "let item of items" [routerLink]="['/detail', item.id]" class = "col-1-4">
     <div class= "module item">
         <h4>{{item.name}}</h4>
     </div>
-  </div>
+  </a>
 </div>
