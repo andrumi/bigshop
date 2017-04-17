@@ -1,12 +1,3 @@
 <app-banner></app-banner>
-<div class = "col-sm-4">
-<h2>Items</h2>
-<ul class="items">
-  <li *ngFor = "let item of items"
-    [class.selected]= "item === selectedItem"
-    (click) = "onSelect(item)">
-    <span class="badge">{{item.id}}</span> {{item.name}}
-  </li>
-</ul>
-</div>
-<item-detail [item]="selectedItem"></item-detail>
+<a routerLink="/items">Items</a>
+<router-outlet></router-outlet>
