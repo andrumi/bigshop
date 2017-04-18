@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 
 import {TitleComponent} from './title.component';
 import {Item} from './item';
+import {User} from './user';
 import {ItemService} from './item.service';
 
 
@@ -18,6 +19,9 @@ export class ItemsComponent implements OnInit{
     // title = "Big Shop";
     selectedItem: Item;
     items:Item[];
+    errorMessage: string;
+	mode = 'Observable';
+    user:User;
 
     constructor(private itemService: ItemService, private router:Router){}
 
@@ -26,15 +30,24 @@ export class ItemsComponent implements OnInit{
     }
     getItems(): void{
         this.itemService.getItems()
-        .then(items=> this.items=items);
+            .subscribe(
+                items=>this.items=items,
+                error=>this.errorMessage=<any>error);
     }
     ngOnInit(): void{
         this.getItems();
     }
     onSelect(item: Item): void{
-    this.selectedItem = item;
+        this.selectedItem = item;
     }
-    
+    register(name: string): void {
+	  name = name.trim();
+	  if (!name) { return; }
+	  this.itemService.create(name)
+					  .subscribe(
+                       user=>this.user = user, 
+					   error => this.errorMessage = <any>error);
+	}
 }
 
 

@@ -11,10 +11,14 @@ import {ItemService} from './item.service';
 })
 export class DashboardComponent implements OnInit{
     items: Item[];
+    	errorMessage: string;
+	mode = 'Observable';
     constructor(private itemService: ItemService){}
 
     ngOnInit(): void {
         this.itemService.getItems()
-            .then(items => this.items = items.slice(1,5));
+                .subscribe(
+                items=>this.items=items.slice(1,5),
+                error => this.errorMessage = <any>error);
     }
 }

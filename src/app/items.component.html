@@ -1,5 +1,12 @@
+  <div>
+	  <label>Register:</label> <input #userName />
+	  <button (click)="register(userName.value); userName.value=''">
+		Add
+	  </button>
+    <textarea #user>{{user.name}}</textarea>
+  </div>
 <div class = "col-sm-4">
-<h2>Items</h2>
+  <h2>Items</h2>
 <ul class="items">
   <li *ngFor = "let item of items"
     [class.selected]= "item === selectedItem"
