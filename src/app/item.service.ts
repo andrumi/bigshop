@@ -31,14 +31,22 @@ export class ItemService{
 		.map(this.extractData)
         .catch(this.handleError);
     }
-    create (name: string): Observable<User> {
+    create (name: string): Observable<Item> {
 		let options = new RequestOptions();
-		const url = `${this.apiUrl}/register`;
+		const url = `${this.apiUrl}/newitem`;
 		
 		return this.http.post(url,{name},options)
 						.map(this.extractData)
 						.catch(this.handleError);
     }
+	delete(id: number): Observable<void> {
+		let options = new RequestOptions();
+		const url = `${this.apiUrl}/delete_item`;
+		console.log(id);
+		return this.http.post(url,{id},options)
+						.map(this.extractData)
+						.catch(this.handleError);
+	}
 
     /// needs changing but I'm too scared
     update(item:Item):Promise<Item>{
@@ -51,6 +59,7 @@ export class ItemService{
                    .then(()=>item)
                    .catch(this.handleError);
     }
+
 
     private handleError(error: any): Promise<any>{
         console.error('An error occurred', error);

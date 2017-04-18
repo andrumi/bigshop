@@ -20,8 +20,8 @@ export class ItemsComponent implements OnInit{
     selectedItem: Item;
     items:Item[];
     errorMessage: string;
-	mode = 'Observable';
-    user:User;
+	mode = 'Observable';    
+    user: User;
 
     constructor(private itemService: ItemService, private router:Router){}
 
@@ -40,13 +40,20 @@ export class ItemsComponent implements OnInit{
     onSelect(item: Item): void{
         this.selectedItem = item;
     }
-    register(name: string): void {
+    add(name: string): void {
 	  name = name.trim();
 	  if (!name) { return; }
 	  this.itemService.create(name)
 					  .subscribe(
-                       user=>this.user = user, 
+                       item=>this.items.push(item),
 					   error => this.errorMessage = <any>error);
+	}
+    delete(item: Item): void {
+		this.itemService.delete(item.id)
+			.subscribe(
+				TRUE =>this.items = this.items.filter(h => h !== item),
+				error => this.errorMessage=<any>error);
+		
 	}
 }
 
