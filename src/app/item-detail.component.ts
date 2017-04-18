@@ -14,6 +14,8 @@ import {Item } from './item';
 })
 export class ItemDetailComponent implements OnInit{
     item: Item;
+    errorMessage: string;
+    mode = 'Observable';
     constructor(
         private itemService: ItemService,
         private route: ActivatedRoute,
@@ -28,8 +30,11 @@ export class ItemDetailComponent implements OnInit{
     goBack(): void{
         this.location.back();
     }
-    save(): void{
-        this.itemService.update(this.item)
-                        .then(()=>this.goBack());
-    }
+	save(): void {
+	  this.itemService.update(this.item)
+		.subscribe(
+			TRUE => this.goBack(),
+			error=> this.errorMessage = <any>error);
+		
+	}
 }

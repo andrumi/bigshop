@@ -48,17 +48,16 @@ export class ItemService{
 						.catch(this.handleError);
 	}
 
-    /// needs changing but I'm too scared
-    update(item:Item):Promise<Item>{
-        const url = '{this.itemsUrl}/${item.id}';
-        console.log(item);
-        console.log(JSON.stringify(item));
-        return this.http
-                   .put(url, JSON.stringify(item),{headers:this.headers})
-                   .toPromise()
-                   .then(()=>item)
-                   .catch(this.handleError);
-    }
+    update(item: Item): Observable<Item> {
+		let options = new RequestOptions();
+	    const url = `${this.apiUrl}/updateitem`;
+		console.log(item);
+		var itemJString =JSON.stringify(item);
+		console.log(itemJString);
+		return this.http.post(url,{itemJString},options)
+				   .map(this.extractData)
+				   .catch(this.handleError);		
+	}
 
 
     private handleError(error: any): Promise<any>{
