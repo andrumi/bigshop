@@ -4,9 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule, JsonpModule} from '@angular/http';
 import {RouterModule} from'@angular/router';
 
-// Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
 
 import {ItemsComponent} from './items.component';
 import {DashboardComponent} from './dashboard.component'
@@ -15,6 +12,7 @@ import {TitleComponent} from './title.component';
 import {ItemDetailComponent} from './item-detail.component';
 import {ItemService} from './item.service';
 import {AppRoutingModule} from './app-routing.module';
+import {ItemSearchComponent} from './item-search.component';
 
 @NgModule({
     imports:[
@@ -29,7 +27,8 @@ import {AppRoutingModule} from './app-routing.module';
         TitleComponent,
         ItemDetailComponent,
         ItemsComponent,
-        DashboardComponent
+        DashboardComponent,
+        ItemSearchComponent
     ],
     providers: [ItemService],
     bootstrap: [ AppComponent]
