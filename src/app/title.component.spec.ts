@@ -5,8 +5,9 @@ import { ComponentFixtureAutoDetect } from '@angular/core/testing';
 
 import { TitleComponent } from './title.component';
 import { async } from '@angular/core/testing';
+import {APP_BASE_HREF} from '@angular/common';
 
-describe('BannerComponent (inline template)', () => {
+describe('TitleComponent', () => {
 
   let comp:    TitleComponent;
   let fixture: ComponentFixture<TitleComponent>;
@@ -17,6 +18,7 @@ describe('BannerComponent (inline template)', () => {
     TestBed.configureTestingModule({
       declarations: [ TitleComponent ],
       providers: [
+        {provide: APP_BASE_HREF, useValue : '/' },
         {provide: ComponentFixtureAutoDetect, useValue: true}
       ] 
     })

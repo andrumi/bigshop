@@ -8,39 +8,50 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
 import { ItemSearchService } from './item-search.service';
 import { Item } from './item';
 
 @Component({
+  moduleId:module.id,
   selector: 'item-search',
-  templateUrl: './item-search.component.html',
-  styleUrls: [ './item-search.component.css' ],
+  templateUrl: 'item-search.component.html',
+  styleUrls: [ 'item-search.component.css' ],
   providers: [ItemSearchService]
 })
 export class ItemSearchComponent implements OnInit {
     items: Observable<Item[]>;
+    mode ='Observable';
     private searchTerms = new Subject<string>();
     constructor(
         private itemSearchService: ItemSearchService,
         private router: Router) {}
-  // Push a search term into the observable stream.
+ 
+  // Push a search term into the observable stream.  
   search(term: string): void {
     this.searchTerms.next(term);
   }
+  wssearch(term: string) {
+        this.items = this.itemSearchService.wssearch(term);
+
+    }
+  
+  // the method inside has been superceded so it may be ok to remove this?
   ngOnInit(): void {
-    this.items = this.searchTerms
-      .debounceTime(300)        // wait 300ms after each keystroke before considering the term
-      .distinctUntilChanged()   // ignore if next search term is same as previous
-      .switchMap(term => term   // switch to new observable each time the term changes
-        // return the http search observable
-        ? this.itemSearchService.search(term)
-        // or the observable of empty heroes if there was no search term
-        : Observable.of<Item[]>([]))
-      .catch(error => {
-        // TODO: add real error handling
-        console.log(error);
-        return Observable.of<Item[]>([]);
-      });
+
+/*    console.log("inside search component");   
+    this.items =this.searchTerms
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .switchMap(term => term ? this.itemSearchService
+                                     .search(term)                                     
+                                     :Observable.of<Item[]>([]))
+                                     .catch(error=>{
+                                       console.log(error);
+                                       return Observable.of<Item[]>([]);
+                                     })*/
+      
+   
   }
   gotoDetail(item: Item): void {
     let link = ['/detail', item.id];

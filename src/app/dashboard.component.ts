@@ -11,7 +11,7 @@ import {ItemService} from './item.service';
 })
 export class DashboardComponent implements OnInit{
     items: Item[];
-    	errorMessage: string;
+    errorMessage: string;
 	mode = 'Observable';
     constructor(private itemService: ItemService){}
 

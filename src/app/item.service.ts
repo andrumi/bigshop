@@ -28,8 +28,8 @@ export class ItemService{
     getItem(id: number): Observable<Item> {
 	  const url = `${this.apiUrl}/detail2/${id}`;
 	  return this.http.get(url)
-		.map(this.extractData)
-        .catch(this.handleError);
+		         .map(this.extractData)
+                 .catch(this.handleError);
     }
     create (name: string): Observable<Item> {
 		let options = new RequestOptions();
