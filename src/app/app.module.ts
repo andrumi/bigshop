@@ -13,6 +13,7 @@ import {ItemDetailComponent} from './item-detail.component';
 import {ItemService} from './item.service';
 import {AppRoutingModule} from './app-routing.module';
 import {ItemSearchComponent} from './item-search.component';
+import {DashboardItemComponent} from './dashboard-item.component';
 
 @NgModule({
     imports:[
@@ -28,7 +29,8 @@ import {ItemSearchComponent} from './item-search.component';
         ItemDetailComponent,
         ItemsComponent,
         DashboardComponent,
-        ItemSearchComponent
+        ItemSearchComponent,
+        DashboardItemComponent
     ],
     providers: [ItemService],
     bootstrap: [ AppComponent]
