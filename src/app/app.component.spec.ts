@@ -6,6 +6,7 @@ import {DashboardComponent} from './dashboard.component';
 import {ItemDetailComponent} from './item-detail.component';
 import {ItemsComponent} from './items.component';
 import {ItemSearchComponent} from './item-search.component';
+import {DashboardItemComponent} from './dashboard-item.component';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -31,7 +32,8 @@ describe('AppComponent', function () {
             TitleComponent,
             ItemDetailComponent,
             ItemsComponent,
-            ItemSearchComponent
+            ItemSearchComponent,
+            DashboardItemComponent
              ],
         providers:[{provide: APP_BASE_HREF, useValue : '/' }]
     })
