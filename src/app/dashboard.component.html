@@ -1,5 +1,9 @@
-<h3>Top Five Sellers</h3>
-<div class="container-fluid">
+<div class="container-fluid"> 
+  <div class="row"></div>
+     <item-search></item-search>
+</div>
+<h3>Top Four Sellers</h3>
+<div class="container-fluid">  
   <div class="row">
   <dashboard-item *ngFor = "let item of items" class = "col-sm-3"
   [item]=item (selected)="goToDetail($event)" >
@@ -7,4 +11,4 @@
   </dashboard-item>
   </div>
 </div>
-<item-search></item-search>
+

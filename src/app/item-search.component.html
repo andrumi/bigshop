@@ -1,10 +1,20 @@
-<div id="search-component">
-  <h4>Item Search</h4>
-  <input #searchBox id="search-box" (keyup)="wssearch(searchBox.value)" />
-  <div>
-    <div *ngFor="let item of items | async"
-         (click)="gotoDetail(item)" class="search-result" >
-      {{item.name}}
+<div class = "container-fluid" id="search-component">
+  <div class ="row">
+  <form class="navbar-form navbar-left">
+    <div class="input-group">
+        <input type="text" class="form-control" #searchBox id="search-box"  placeholder="Search" (keyup)="wssearch(searchBox.value)" autocomplete="off" autofocus >
+        <div class="input-group-btn">
+        <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+        </button><br />
+        </div>        
+    </div>    
+  </form>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let item of items | async" (click)="gotoDetail(item)" id= "searchresult" class = "col-sm-3">
+            {{item.name}}
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div  *ngIf = "item" class = "col-sm-4">
+<div  *ngIf = "item" class = "col-sm-4" >
     <h2>{{item.name}} details.</h2>
     <table class="table">
     <thead>
@@ -13,7 +13,7 @@
       </tr>
       <tr>
         <th><label>Price:</label></th>
-        <th><input [(ngModel)] = "item.price" placeholder = "Price"> </th>
+        <th><input type="number" step="0.01" size="4" [(ngModel)] = "item.price" placeholder = "Price"></th>
       </tr>
       <tr>
         <th><label>Category:</label></th>

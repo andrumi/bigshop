@@ -28,4 +28,5 @@ export class DashboardComponent implements OnInit{
        let url = `/detail/${item.id}`;
        this.router.navigateByUrl(url);
     }
+    
 }

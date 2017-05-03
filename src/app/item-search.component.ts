@@ -16,7 +16,7 @@ import { Item } from './item';
   moduleId:module.id,
   selector: 'item-search',
   templateUrl: 'item-search.component.html',
-  styleUrls: [ 'item-search.component.css' ],
+  styleUrls: [ 'dashboard.component.css','item-search.component.css' ],
   providers: [ItemSearchService]
 })
 export class ItemSearchComponent implements OnInit {

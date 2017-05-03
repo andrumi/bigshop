@@ -1,18 +1,22 @@
-.search-result{
+.col-sm-3{
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
-  width:195px;
-  height: 16px;
+  border-top: 1px solid gray;
+
+  background-color: #66ccff;
   padding: 5px;
-  background-color: white;
+
   cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+
 }
-.search-result:hover {
+.col-sm-3:hover {
   color: #eee;
   background-color: #607D8B;
 }
-#search-box{
+/*#search-box{
   width: 200px;
   height: 20px;
-}
+}*/

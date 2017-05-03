@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {TitleComponent} from './title.component';
 
+
 @Component({
     moduleId:module.id,
     selector: 'my-app',
