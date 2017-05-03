@@ -20,6 +20,7 @@ export class ItemService{
 
     getItems(): Observable<Item[]>{
         const url = `${this.apiUrl}/getitems/`;
+
 		return this.http.get(url)
 						.map(this.extractData)
 						.catch(this.handleError);
@@ -62,6 +63,9 @@ export class ItemService{
 
     private handleError(error: any): Promise<any>{
         console.error('An error occurred', error);
+
+		var modalButton = document.getElementById('modalButton');
+		modalButton.click();		
         return Promise.reject(error.message || error);
     }
     private extractData(res: Response) {
