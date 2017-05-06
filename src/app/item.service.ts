@@ -13,13 +13,14 @@ import {User} from './user';
 
 @Injectable()
 export class ItemService{
+	private AUTHENTICATOR_KEY = '12345H';
     private itemsUrl = 'api/items';
     private apiUrl= 'http://mi-linux.wlv.ac.uk/~1228264/webservice/index.php/api';
     constructor(private http:Http){}
-    private headers =new Headers({'Content-Type':'application/json'})
+    private headers = new Headers({'Content-Type':'application/json'})
 
     getItems(): Observable<Item[]>{
-        const url = `${this.apiUrl}/getitems/`;
+        const url = `${this.apiUrl}/getitems/${this.AUTHENTICATOR_KEY}`;
 
 		return this.http.get(url)
 						.map(this.extractData)
