@@ -1,10 +1,10 @@
   <div>
-	  <label>New Item:</label> <input #userName />
-	  <button (click)="add(userName.value); userName.value=''">
+	  <label>New Item:</label> <input #itemName />
+	  <button (click)="add(itemName.value); itemName.value=''">
 		Add
 	  </button>
-    <div *ngIf ="user" >
-       <h2>{{user.name}}</h2>    
+    <div *ngIf ="item" >
+       <h2>{{item.name}}</h2>    
     </div>
   </div>
 <div class = "col-sm-4">

@@ -11,9 +11,11 @@ import {AppComponent} from './app.component';
 import {TitleComponent} from './title.component';
 import {ItemDetailComponent} from './item-detail.component';
 import {ItemService} from './item.service';
+import {SharedService} from './shared.service';
 import {AppRoutingModule} from './app-routing.module';
 import {ItemSearchComponent} from './item-search.component';
 import {DashboardItemComponent} from './dashboard-item.component';
+import {RegisterComponent} from './register.component';
 
 @NgModule({
     imports:[
@@ -30,9 +32,10 @@ import {DashboardItemComponent} from './dashboard-item.component';
         ItemsComponent,
         DashboardComponent,
         ItemSearchComponent,
-        DashboardItemComponent
+        DashboardItemComponent,
+        RegisterComponent
     ],
-    providers: [ItemService],
+    providers: [ItemService, SharedService],
     bootstrap: [ AppComponent]
 })
 export class AppModule{}

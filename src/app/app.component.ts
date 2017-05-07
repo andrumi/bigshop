@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TitleComponent} from './title.component';
+import {User} from './user';
 
 
 @Component({
@@ -9,5 +10,5 @@ import {TitleComponent} from './title.component';
     styleUrls:['app.component.css']
 })
 export class AppComponent{
-    
+    public currentUser:User;
 }

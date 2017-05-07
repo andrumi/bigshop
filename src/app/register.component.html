@@ -1,0 +1,21 @@
+<form name="form" (ngSubmit)="f.form.valid && register(username.value, password.value, email.value)" #f="ngForm" autocomplete="off" novalidate>
+<table class="table">
+    <tr class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+    <th><label>Name:</label></th>
+    <th><input #username class="form-control" type = "text" name = "username" ng-modal="username"required></th>
+    <th *ngIf="f.submitted && !username.valid" class="help-block">Username is required</th> 
+    </tr>
+    <tr class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+    <th><label>email:</label></th>
+    <th><input type="text" #email class = "form-control" name = "email" type = "email" ng-modal="email" value ="" autocomplete="off" required></th>
+    <th *ngIf="f.submitted && !email.valid" class="help-block">Email is required</th> 
+    </tr>
+    <tr class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+    <th><label>Password:</label></th>
+    <th><input #password  class="form-control" type="password" name = "password" ng-modal="password" value=""autocomplete="off" required></th>
+    <th *ngIf="f.submitted && !password.valid" class="help-block">Password is required</th> 
+    </tr>  
+</table>
+<button>Register</button>
+</form>
+<button (click)="goBack()">Back</button>
