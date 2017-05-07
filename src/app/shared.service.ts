@@ -8,7 +8,7 @@ export class SharedService {
   private currentUser = new Subject<string>();  
 
   // Observable string streams
-  username$ = this.currentUser.asObservable();
+  authorized$ = this.currentUser.asObservable();
 
     // Service message commands
   publishData(data: string) {

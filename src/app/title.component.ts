@@ -15,34 +15,13 @@ export class TitleComponent implements OnChanges{
   username: any ='';
   
   constructor(private sharedService:SharedService){
-    this.sharedService.username$.subscribe(
-      data=>{
-        // console.log("In banner with "+data);
-        this.username= "Welcome " + data + "! ";
-        // console.log("username is "+ this.username + "! ");
-        
-      }
-    )
+    this.sharedService.authorized$.subscribe(
+      data=>{        
+        var currentUser = JSON.parse(window.localStorage.getItem('currentUser'));
+        this.username = "Welcome " + currentUser.name + "! ";     
+      })      
   }
   ngOnChanges():void{
 
   }
-
-/*  ngOnInit(): void {
-    console.log("In detect changes");
-        try {
-          var currentUser = JSON.parse(window.localStorage.getItem('currentUser'));
-          if (currentUser != null){
-            this.user = new User;
-            this.user.name = currentUser.name;
-            this.user.email = currentUser.email;
-            console.log("name inside header "+ this.user.name);
-          }  else {
-            console.log("in header with nothing");
-          }  
-        }catch (e){
-            console.log("not working");
-        }  
-  }
- }*/
 }

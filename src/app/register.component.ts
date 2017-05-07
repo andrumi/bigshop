@@ -29,27 +29,22 @@ export class RegisterComponent implements OnInit{
     }
     storeUser():void{       
         window.localStorage.setItem('currentUser',JSON.stringify(this.user));
-        var currentUser = JSON.parse(window.localStorage.getItem('currentUser'));
-        var username = currentUser.name;
-        console.log(username);
-        this.sharedService.publishData(username);
+        this.sharedService.publishData('authorized');
         this.location.back();
     }
     goBack(): void{     
         this.location.back();
     }
 	register(username:string, password: string, email: string): void {
-/*        console.log(username);
-        console.log(password);*/
         this.user = new User;
         this.user.name= username;
         this.user.email= email;
         this.user.password = password;
 
-	  this.itemService.register(this.user)
-		.subscribe(
-			user => {this.user = user,this.storeUser()},
-			error=> this.errorMessage = <any>error);
+        this.itemService.register(this.user)
+            .subscribe(
+                user => {this.user = user,this.storeUser()},
+                error=> this.errorMessage = <any>error);
 		
 	}
 }

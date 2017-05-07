@@ -11,30 +11,18 @@ export class ItemSearchService {
   private apiUrl= 'http://mi-linux.wlv.ac.uk/~1228264/webservice/index.php/api';
   constructor(private http: Http) {}
   private headers =new Headers({'Content-Type':'application/json'})
- // from github.com/bhaskeryadav
-  ot: Observable<Item[]>;
 
-  wssearch(term: string) {
-        //For get method  
+  result: Observable<Item[]>;
+
+  search(term: string) {    
         const serviceUrl = `${this.apiUrl}/search/${term}`;
-        this.ot = this.http
+        this.result = this.http
             .get(serviceUrl)
             .map(response => response.json());             
-        return this.ot;
-    }
-  search(term: string): Observable<Item[]> {
-    const url = `${this.apiUrl}/search/${term}`;
-    try{
-     console.log("inside search servicee");
-    return this.http
-               .get(url)
-               .map(response => response.json().data as Item[]);
-               
-    }catch (error){
-      console.log(error);
-    }
-               
+        return this.result;
+    
   }
+
   private handleError(error: any): Promise<any>{
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
