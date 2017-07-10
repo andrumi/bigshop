@@ -16,7 +16,7 @@ export class ItemService{
 	private AUTHENTICATOR_KEY = '12345H';
 	private secret: string;
     private itemsUrl = 'api/items';
-    private apiUrl= 'http://mi-linux.wlv.ac.uk/~1228264/webservice/index.php/api';
+    private apiUrl= 'http://***************************';
     constructor(private http:Http){}
     private headers = new Headers({'Content-Type':'application/json'})
 
